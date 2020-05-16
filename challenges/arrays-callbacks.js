@@ -21,19 +21,31 @@ The zoos want to display both the scientific name and the animal name in front o
 
 */
 const displayNames = [];
-console.log(displayNames);
+    zooAnimals.forEach(function(zooAnimal) {
+      return displayNames.push('ScientificName: ${zooAnimal.scientific_name}, Name: ${zooAnimals.animal_name}');
+    });
 
+
+console.log(displayNames);
 /* Request 2: .map()
 
 The zoos need a list of all their animal's names (animal_name only) converted to lower case. Using map, create a new array of strings named lowCaseAnimalNames, each string following this pattern: "jackal, asiatic". Log the resut.
 
 */
+// const lowCaseAnimalNames = [];
+// zooAnimal.push(zooAnimals.map(function(zooAnimal) {
+//     return zooAnimal.animal_name.toLowerCase();
+//   })
+// );
 
-const lowCaseAnimalNames = [];
-    lowerCase.push(zooAnimals.map(function(zooAnimal) {
-      return zooAnimal.animal_name.toLowerCase()
-    }))
+
+
+const lowCaseAnimalNames = zooAnimals.map(zooAnimal => {
+  return zooAnimal.animal_name.toLowerCase()
+});
+
 console.log(lowCaseAnimalNames);
+
 
 
 /* Request 3: .filter() 
@@ -44,9 +56,10 @@ The zoos are concerned about animals with a lower population count. Using filter
 const lowPopulationAnimals = [];
     lowerPopulation.push(zooAnimals.filter((zooAnimal) =>zooAnimal.population < 5));
 
+
+// const lowPopulationAnimals = zooAnimals.filter(zooAnimal => zooAnimal.population < 5);
+
 console.log(lowPopulationAnimals);
-
-
 /* Request 4: .reduce() 
 
 The zoos need to know their total animal population across the United States. Find the total population from all the zoos using the .reduce() method. Remember the reduce method takes two arguments: a callback (which itself takes two args), and an initial value for the count.
@@ -79,16 +92,15 @@ function consume(a, b, cb) {
   * Create a function named multiply that returns the product of two numbers 
   * Create a function named greeting that accepts a first and last name and returns "Hello first-name last-name, nice to meet you!"
 */
-function sum(num1, num2) {
+function add(num1, num2) {
   return (num1 + num2)
 }
-function multiple(num1, num2) {
+function multiply(num1, num2) {
 return (num1 * num2)
 }
-function greet(num1, num2) {
+function greeting(firstName, lastName) {
 return (`Hello ${firstName} ${lastName}, nice to meet you!`)
 }
-
 /* Step 3: Check your work by un-commenting the following calls to consume(): */
 // console.log(consume(2, 2, add)); // 4
 // console.log(consume(10, 16, multiply)); // 160
