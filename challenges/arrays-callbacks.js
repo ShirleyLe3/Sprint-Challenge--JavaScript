@@ -21,9 +21,15 @@ The zoos want to display both the scientific name and the animal name in front o
 
 */
 const displayNames = [];
-    zooAnimals.forEach(function(zooAnimal) {
-      return displayNames.push('ScientificName: ${zooAnimal.scientific_name}, Name: ${zooAnimals.animal_name}');
-    });
+zooAnimals.forEach(function(zooAnimal) {
+  return displayNames.push(
+    `ScientificName: ${zooAnimal.scientific_name}, Name: ${zooAnimal.animal_name}`
+  );
+});
+// const displayNames = [];
+//     zooAnimals.forEach(function(zooAnimal) {
+//       return displayNames.push('ScientificName: ${zooAnimal.scientific_name}, Name: ${zooAnimals.animal_name}');
+//     });
 
 
 console.log(displayNames);
@@ -53,11 +59,18 @@ console.log(lowCaseAnimalNames);
 The zoos are concerned about animals with a lower population count. Using filter, create a new array of objects called lowPopulationAnimals which contains only the animals with a population less than 5.
 
 */
-const lowPopulationAnimals = [];
-    lowerPopulation.push(zooAnimals.filter((zooAnimal) =>zooAnimal.population < 5));
+//const lowPopulationAnimals = [];
+//    lowerPopulation.push(zooAnimals.filter((zooAnimal) =>zooAnimal.population < 5));
 
+// const lowPopulationAnimals = zooAnimals.filter(function(zooAnimal){
+//   return zooAnimal.population < 5;
+// });
 
-// const lowPopulationAnimals = zooAnimals.filter(zooAnimal => zooAnimal.population < 5);
+// const lowPopulationAnimals = zooAnimals.filter((zooAnimal) => {
+//   return zooAnimal.population < 5});
+
+const lowPopulationAnimals = zooAnimals.filter(zooPopulation => zooPopulation.population < 5);
+
 
 console.log(lowPopulationAnimals);
 /* Request 4: .reduce() 
@@ -65,9 +78,19 @@ console.log(lowPopulationAnimals);
 The zoos need to know their total animal population across the United States. Find the total population from all the zoos using the .reduce() method. Remember the reduce method takes two arguments: a callback (which itself takes two args), and an initial value for the count.
 
 */
-const populationTotal = 0;
-   populationTotal.push(zooAnimals.reduce(function(sum, current) {
-    return sum + current.population},[0]));
+
+//const populationTotal = 
+// // populationTotal.push(
+//  zooAnimals.reduce(function (sum, current) {
+//      return sum + current.population
+//    }, 0);
+
+///////////////////////
+
+const populationTotal = zooAnimals.reduce((sum, current) => {
+   return sum + current.population;
+ }, 0);      
+
 
 console.log(populationTotal);
 
